@@ -26,18 +26,18 @@ public final class Command {
     }
 
     public static Command send = new Command(SEND),
-            subscribe = new Command(SUBSCRIBE),
-            unsubscribe = new Command(UNSUBSCRIBE),
-            begin = new Command(BEGIN),
-            commit = new Command(COMMIT),
-            abort = new Command(ABORT),
-            disconnect = new Command(DISCONNECT),
-            connect = new Command(CONNECT);
+        subscribe = new Command(SUBSCRIBE),
+        unsubscribe = new Command(UNSUBSCRIBE),
+        begin = new Command(BEGIN),
+        commit = new Command(COMMIT),
+        abort = new Command(ABORT),
+        disconnect = new Command(DISCONNECT),
+        connect = new Command(CONNECT);
 
     public static Command message = new Command(MESSAGE),
-            receipt = new Command(RECEIPT),
-            connected = new Command(CONNECTED),
-            error = new Command(ERROR);
+        receipt = new Command(RECEIPT),
+        connected = new Command(CONNECTED),
+        error = new Command(ERROR);
 
     public static Command valueOf(String v) {
         v = v.trim();
