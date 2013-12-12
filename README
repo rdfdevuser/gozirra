@@ -1,5 +1,10 @@
-
 This is a fork of the Gozirra 0.4.1 project.
+
+
+Updates Gozirra to be stomp 1.1 compliant. 
+This version also supports one-way heartbeats (from server to client).
+All documentation other than this introductory paragraph is from the original project.
+
 
 
 
