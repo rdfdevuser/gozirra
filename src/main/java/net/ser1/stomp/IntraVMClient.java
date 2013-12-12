@@ -1,7 +1,6 @@
 package net.ser1.stomp;
 
 import java.util.Map;
-import java.util.Iterator;
 
 /**
  * A client that is connected directly to a server.  Messages sent via
@@ -12,11 +11,12 @@ import java.util.Iterator;
  * (c)2005 Sean Russell
  */
 public class IntraVMClient extends Stomp implements Listener, Authenticatable {
-    private Server _server;
+    private Server server;
+    private static final String INTRA_VM_CLIENT = "IntraVMClient";
 
     protected IntraVMClient(Server server) {
-        _server = server;
-        _connected = true;
+        this.server = server;
+        connected = true;
     }
 
     public boolean isClosed() {
@@ -25,32 +25,32 @@ public class IntraVMClient extends Stomp implements Listener, Authenticatable {
 
 
     public Object token() {
-        return "IntraVMClient";
+        return INTRA_VM_CLIENT;
     }
 
 
     /**
      * Transmit a message to clients and listeners.
      */
-    public void transmit(Command c, Map h, String b) {
-        _server.receive(c, h, b, this);
+    public void transmit(Command command, Map<String, String> headers, String body) {
+        this.server.receive(command, headers, body, this);
     }
 
 
-    public void disconnect(Map h) {
-        _server.receive(Command.DISCONNECT, null, null, this);
-        _server = null;
+    public void disconnect(Map<String, String> headers) {
+        this.server.receive(Command.disconnect, null, null, this);
+        this.server = null;
     }
 
-    public void message(Map headers, String body) {
-        receive(Command.MESSAGE, headers, body);
+    public void message(Map<String, String> headers, String body) {
+        receive(Command.message, headers, body);
     }
 
-    public void receipt(Map headers) {
-        receive(Command.RECEIPT, headers, null);
+    public void receipt(Map<String, String> headers) {
+        receive(Command.receipt, headers, null);
     }
 
-    public void error(Map headers, String body) {
-        receive(Command.ERROR, headers, body);
+    public void error(Map<String, String> headers, String body) {
+        receive(Command.error, headers, body);
     }
 }
