@@ -1,12 +1,12 @@
-This is a fork of the Gozirra 0.4.1 project.
-
 
 Updates Gozirra to be stomp 1.1 compliant. 
+Uses some java 1.6 features (the original used java 1.4).
 This version also supports one-way heartbeats (from server to client).
+Note that the project can, if preferred, be built with maven rather than ant.
 All documentation other than this introductory paragraph is from the original project.
 
 
-
+This is a fork of the Gozirra 0.4.1 project.
 
 == Original README:
 
