@@ -6,5 +6,5 @@ import java.util.Map;
  * (c)2005 Sean Russell
  */
 public interface Listener {
-    public void message(Map headers, String body);
+    void message(Map<String, String> headers, String body);
 }
