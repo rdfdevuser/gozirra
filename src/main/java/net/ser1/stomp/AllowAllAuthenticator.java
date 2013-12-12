@@ -9,6 +9,7 @@ public class AllowAllAuthenticator implements Authenticator {
      * @param user the user's login
      * @param pass the user's passcode
      * @return a token which will be used for future authorization requests
+     * @throws LoginException
      */
     public Object connect(String user, String pass) throws LoginException {
         return "";
@@ -17,9 +18,9 @@ public class AllowAllAuthenticator implements Authenticator {
     /**
      * Authorizes a send or subscribe request.
      *
-     * @param channel the channel the user is attempting to subscribe or
-     *                send to.
-     * @param token   the token returned by a previous call to connect.
+     * @param channel the channel the user is attempting to subscribe or send to.
+     * @param token the token returned by a previous call to connect.
+     * @return true.
      */
     public boolean authorizeSend(Object token, String channel) {
         return true;
