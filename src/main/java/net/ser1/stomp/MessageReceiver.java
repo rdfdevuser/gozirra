@@ -6,9 +6,11 @@ import java.util.Map;
  * (c)2005 Sean Russell
  */
 public interface MessageReceiver {
-    public void receive(Command c, Map h, String b);
+    
+	void receive(Command command, Map<String, String> header, String body);
 
-    public void disconnect();
+    void disconnect();
 
-    public boolean isClosed();
+    boolean isClosed();
 }
+
