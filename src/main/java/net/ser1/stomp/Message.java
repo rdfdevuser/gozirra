@@ -6,28 +6,26 @@ import java.util.Map;
  * (c)2005 Sean Russell
  */
 public class Message {
-    private Command _command;
-    private Map _headers;
-    private String _body;
 
-    protected Message(Command c, Map h, String b) {
-        _command = c;
-        _headers = h;
-        _body = b;
-    }
+	private Command command;
+	private Map<String, String> headers;
+	private String body;
 
-    public Map headers() {
-        return _headers;
-    }
+	protected Message(Command acommand, Map<String, String> aheaders, String abody) {
+		command = acommand;
+		headers = aheaders;
+		body = abody;
+	}
 
-    public String body() {
-        return _body;
-    }
+	public Map<String, String> headers() {
+		return headers;
+	}
 
-    public Command command() {
-        return _command;
-    }
+	public String body() {
+		return body;
+	}
+
+	public Command command() {
+		return command;
+	}
 }
-
-
-
